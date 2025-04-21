@@ -1,0 +1,176 @@
+<!DOCTYPE html><html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Situs Web Anti-Bullying</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', sans-serif;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            overflow-x: hidden;
+        }
+        .container {
+            max-width: 800px;
+            margin: auto;
+            padding: 20px;
+            background: rgba(0, 0, 0, 0.4);
+            border-radius: 15px;
+            box-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
+            animation: fadeIn 1.5s ease-in-out;
+        }
+        h1, h2 {
+            text-align: center;
+        }
+        button {
+            background: #00c6ff;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 10px;
+            cursor: pointer;
+            margin-bottom: 10px;
+            transition: background 0.3s ease;
+        }
+        button:hover {
+            background: #0072ff;
+        }
+        form input, form textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: none;
+            border-radius: 10px;
+        }
+        footer {
+            text-align: center;
+            margin-top: 40px;
+            font-size: 0.9em;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .contact-button {
+            display: inline-block;
+            margin-top: 20px;
+            text-align: center;
+        }
+        .contact-button a {
+            background: #28a745;
+            padding: 10px 20px;
+            color: white;
+            border-radius: 10px;
+            text-decoration: none;
+            transition: background 0.3s ease;
+        }
+        .contact-button a:hover {
+            background: #1f7e36;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Memahami dan Mencegah Bullying</h1><section id="bullying-examples">
+        <h2>Contoh-Contoh Bullying</h2>
+        <button onclick="toggleSection('example-list')">Tampilkan Contoh</button>
+        <ul id="example-list" style="display: none;">
+            <li>Mengolok-olok fisik teman secara terus menerus.</li>
+            <li>Menyebarkan rumor atau gosip yang tidak benar.</li>
+            <li>Mengucilkan seseorang dari pergaulan.</li>
+            <li>Mengintimidasi melalui media sosial (cyberbullying).</li>
+            <li>Mengambil barang tanpa izin dan mengejek korban.</li>
+            <li>Memukul, menendang, atau menyakiti secara fisik.</li>
+            <li>Memaksa orang lain untuk melakukan sesuatu yang mereka tidak ingin lakukan.</li>
+            <li>Menghina agama atau latar belakang budaya seseorang.</li>
+            <li>Menertawakan kekurangan orang lain di depan umum.</li>
+            <li>Mengancam korban agar diam dan tidak melapor.</li>
+            <li>Mencoret-coret barang pribadi korban.</li>
+            <li>Mempermalukan korban di depan umum.</li>
+            <li>Mengganggu saat korban sedang berbicara di kelas.</li>
+            <li>Melontarkan candaan yang menyakitkan berulang kali.</li>
+            <li>Memposting komentar negatif di media sosial korban.</li>
+            <li>Memalsukan akun untuk menjebak atau mempermalukan korban.</li>
+        </ul>
+    </section>
+
+    <section id="bullying-impact">
+        <h2>Dampak Bullying</h2>
+        <button onclick="toggleSection('impact-list')">Tampilkan Dampak</button>
+        <ul id="impact-list" style="display: none;">
+            <li>Bisa membuat korban stres berat dan cemas berlebihan.</li>
+            <li>Mengalami trauma psikologis jangka panjang.</li>
+            <li>Kehilangan rasa percaya diri dan menarik diri dari lingkungan.</li>
+            <li>Prestasi menurun karena kehilangan semangat belajar.</li>
+            <li>Dalam kasus ekstrem, dapat menyebabkan depresi atau bahkan keinginan bunuh diri.</li>
+            <li>Mengalami kesulitan berinteraksi sosial setelah kejadian bullying.</li>
+            <li>Korban bisa merasa terisolasi dan tidak diterima di lingkungan sosialnya.</li>
+            <li>Gangguan tidur atau pola makan akibat stres yang ditimbulkan.</li>
+            <li>Korban mungkin tidak bisa merasa aman di tempat-tempat yang sebelumnya terasa aman.</li>
+        </ul>
+    </section>
+
+    <section id="actions">
+        <h2>Bagaimana Kita Bisa Membantu?</h2>
+        <button onclick="toggleSection('action-list')">Tampilkan Cara Membantu</button>
+        <ul id="action-list" style="display: none;">
+            <li>Melaporkan tindakan bullying kepada guru atau orang dewasa terpercaya.</li>
+            <li>Mendukung teman yang menjadi korban bullying.</li>
+            <li>Menghindari ikut serta dalam tindakan bullying.</li>
+            <li>Memberi edukasi kepada teman tentang dampak bullying.</li>
+            <li>Menjadi pendengar yang baik bagi korban bullying.</li>
+            <li>Mengikuti kampanye anti-bullying di sekolah atau komunitas.</li>
+            <li>Menggunakan media sosial untuk menyebarkan pesan positif.</li>
+            <li>Membuat komunitas atau grup pendukung bagi korban bullying.</li>
+            <li>Menjadi agen perubahan dengan berbicara tentang bullying secara terbuka.</li>
+        </ul>
+    </section>
+
+    <section id="report">
+        <h2>Melaporkan Bullying</h2>
+        <button onclick="toggleSection('report-form')">Laporkan Bullying</button>
+        <form id="report-form" style="display: none;" onsubmit="return sendToWhatsApp()">
+            <label for="name">Nama:</label>
+            <input type="text" id="name" name="name" required><br>
+            <label for="description">Deskripsi Bullying:</label>
+            <textarea id="description" name="description" rows="4" required></textarea><br>
+            <label for="date">Tanggal Kejadian:</label>
+            <input type="date" id="date" name="date" required><br>
+            <input type="submit" value="Kirim Laporan via WhatsApp">
+        </form>
+    </section>
+
+    <div class="contact-button">
+        <p>Ada saran? Hubungi aku di WhatsApp:</p>
+        <a href="https://wa.me/6285764413880?text=Halo%20Ikyy%2C%20aku%20punya%20saran%20buat%20website%20anti-bullying">Contact Me</a>
+    </div>
+
+    <footer>
+        &copy; 2025 Kampanye Anti-Bullying oleh Ikyy
+    </footer>
+</div>
+
+<script>
+    function toggleSection(id) {
+        const element = document.getElementById(id);
+        element.style.display = element.style.display === "none" ? "block" : "none";
+    }
+
+    function sendToWhatsApp() {
+        const name = document.getElementById("name").value;
+        const description = document.getElementById("description").value;
+        const date = document.getElementById("date").value;
+
+        const message = `Halo Ikyy, saya ingin melaporkan bullying:\n\nNama: ${name}\nTanggal: ${date}\nDeskripsi: ${description}`;
+        const encodedMessage = encodeURIComponent(message);
+        const waLink = `https://wa.me/6285764413880?text=${encodedMessage}`;
+
+        window.open(waLink, '_blank');
+        return false;
+    }
+</script>
+
+</body>
+</html>
